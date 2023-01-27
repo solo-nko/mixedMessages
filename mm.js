@@ -7,11 +7,11 @@ Subject + verb
 Components:
 Verbs
 Nouns
-    Singular
-    Plural
+	Singular
+	Plural
 Article
-    Singular
-    Plural
+	Singular
+	Plural
 Adjectives
 
 Build arrays for each of these?
@@ -19,7 +19,28 @@ Program would pick at random from each array
 
 */
 
-const verbs = [];
-const nouns = ["fox", "robot", "goblin"];
-const articles = ["a", "the", "an"];
+const verbs = ["eats", "strikes", "wipes"];
+const nouns = ["fox", "robot", "goblin", "road"];
+const articles = ["the", "a","an"]; //choose based on vowel/consonant;
 const adjective = ["sleepy", "fiery", "calm", "golden"];
+
+let randomSentence = [];
+
+function randomSelection(inputArray)
+{
+	let chosenIndex = Math.floor(Math.random() * inputArray.length-1);
+	return inputArray[chosenIndex];
+}
+
+function constructSentence()
+{
+	randomSentence.push(randomSelection(articles));
+		if (randomSentence[0] === "a")
+		{
+			
+		}
+		else if (randomSentence[0] === "an")
+		{
+
+		}
+}    
