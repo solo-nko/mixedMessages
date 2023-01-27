@@ -19,8 +19,8 @@ Program would pick at random from each array
 
 */
 
-const verbs = ["eats", "strikes", "wipes"];
-const nouns = ["fox", "robot", "goblin", "road", "ape", "eye", "knife", "ogre", "angler"];
+const verbs = ["eats", "strikes", "wipes", "pushes", "pulls", "drops", "throws"];
+const nouns = ["fox", "robot", "goblin", "road", "ape", "eye", "knife", "ogre", "angler", "ostrich", "imp"];
 const articles = ["the", "a", "an"]; //choose based on vowel/consonant;
 const adjective = ["sleepy", "fiery", "calm", "golden"];
 const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "b", "w", "x", "w,", "y", "z"]
@@ -56,6 +56,36 @@ function constructSentence()
 	{
 		randomSentenceArray.push(testWord);
 	}
+
+	randomSentenceArray.push(randomSelection(verbs));
+	randomSentenceArray.push(randomSelection(articles));
+
+	testWord = randomSelection(nouns);
+	while (randomSentenceArray.includes(testWord))
+	{
+		testWord = randomSelection(nouns);
+	}
+
+	if (randomSentenceArray[3] === "a")
+	{
+		while (vowels.includes(testWord[0]))//if the noun pulled starts with aiueo, draw again.
+		{
+			testWord = randomSelection(nouns);
+		}
+		randomSentenceArray.push(testWord);
+	}
+	else if (randomSentenceArray[3] === "an")
+	{
+		while (consonants.includes(testWord[0]))//if the noun pulled does NOT start with aiueo, draw again.  Currently broken, because I think 
+		{
+			testWord = randomSelection(nouns);
+		}
+		randomSentenceArray.push(testWord);
+	} else
+	{
+		randomSentenceArray.push(testWord);
+	}
+
 	return randomSentenceArray.join(" ");
 }
 
