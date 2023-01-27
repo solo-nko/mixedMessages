@@ -1,5 +1,6 @@
-//The Mixed Messages project will function as a random message generator.
-/* We'll try this by studying sentence structure.
+// The Mixed Messages project will function as a random message generator.  It is capable of randomly drawing from several arrays of words and constructing a grammatically correct English sentence.  It uses nouns, verbs, articles, and adjectives, and avoids repeating any one word (except for articles).
+
+/* 
 
 English sentence structure:
 Subject + verb
@@ -13,9 +14,6 @@ Article
 	Singular
 	Plural
 Adjectives
-
-Build arrays for each of these?
-Program would pick at random from each array
 
 */
 
@@ -96,8 +94,9 @@ function constructSentence()
 		randomSentenceArray.push(testWord);
 	}
 	
-	let newSentence = randomSentenceArray.join(" ");
-	newSentence = newSentence.charAt(0).toUpperCase() + newSentence.slice(1) + ".";
+	let newSentence = randomSentenceArray.join(" "); //create a string from the array
+	newSentence = newSentence.charAt(0).toUpperCase() + newSentence.slice(1) + "."; //capitalize the sentence and add a period
+	
 	return newSentence;
 }
 
